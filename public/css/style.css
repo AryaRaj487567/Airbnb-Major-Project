@@ -57,8 +57,10 @@ body{
 
 /* Card */
 .listing-card{
-    border: none !important;
-    margin-bottom: 2rem;
+    border:none !important;
+    margin-bottom:2rem;
+    width:100%;
+    height:100%;
 }
 
 .card-img-top{
@@ -77,6 +79,14 @@ body{
 
 .listing-link{
     text-decoration: none;
+    display: block;
+    color: inherit;
+}
+
+.listing-img{
+    width:100%;
+    height:20rem;
+    object-fit:cover;
 }
 
 /* Card Effect */
