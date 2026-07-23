@@ -7,7 +7,7 @@
     gap:1rem;
     overflow-x:auto;
     white-space:nowrap;
-    padding:1rem 0;
+    padding:0.5rem 0;
     scrollbar-width:none;
 }
 
@@ -19,6 +19,7 @@
         text-align:center;
         opacity:.7;
         flex:0 0 auto;
+        padding: 0.5rem;
     }
 
     .filter:hover{
@@ -35,6 +36,7 @@
         border-radius:15px;
         padding:.8rem 1rem;
         margin-left:auto;
+        margin-right: 0.5rem;
         flex:0 0 auto;
     }
 
@@ -101,7 +103,7 @@
             </div>
         </div>
     </div>
-    <div class="row g-4 mt-4">
+    <div class="row g-4 mt-3">
         <% for(let listing of allListings){%>
            <div class="col-12 col-md-6 col-lg-4 mb-4">
                 <a href="/listings/<%= listing._id%>" class="listing-link">
