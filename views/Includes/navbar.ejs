@@ -1,23 +1,44 @@
 <style>
-  .search-btn {
-    background-color: #fe424d;
-    color: white;
-    border-radius: 25px;
-    padding: 0 1rem 0 1rem;
-  }
-  .search-btn:hover{
-    background-color: #fe424d;
-    color: white;
-  }
-  .search-btn i{
-    display: inline;
-    margin-right: 0.5rem;
-  }
-  .search-inp {
-    border-radius: 25px;
-    padding: 0.5rem 3rem 0.5rem 3rem;
-    font-size: 1rem;
-  }
+  .search-btn{
+    background:#fe424d;
+    color:white;
+    border-radius:30px;
+    padding:0.5rem 1rem;
+    border:none;
+}
+
+.search-btn:hover{
+    background:#fe424d;
+    color:white;
+}
+
+.search-btn i{
+    margin-right:0.5rem;
+}
+
+.search-inp{
+    border-radius:30px;
+    padding:0.6rem 1rem;
+    width:320px;
+}
+
+@media(max-width:991px){
+
+.search-inp{
+  width:100%;
+}
+
+form.d-flex{
+  width:100%;
+  margin:1rem 0;
+}
+
+.search-btn{
+  width:100%;
+  margin-top:.5rem;
+}
+
+}
 </style>
 
 <nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
@@ -36,10 +57,17 @@
         <a class="nav-link" href="/listings">Explore</a>
       </div>
       <div class="navbar-nav ms-auto">
-          <form class="d-flex" role="search">
-            <input class="form-control me-2 search-inp" type="search" placeholder="Search destinations"/>
-            <button class="btn search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
-         </form>
+          <form class="d-flex flex-lg-row flex-column align-items-stretch ms-lg-auto" role="search">
+              <input
+                  class="form-control search-inp me-lg-2 mb-2 mb-lg-0"
+                  type="search"
+                  placeholder="Search destinations">
+
+              <button class="btn search-btn" type="submit">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                  Search
+              </button>
+          </form>
       </div>
       <div class="navbar-nav ms-auto">
         <a class="nav-link" href="/listings/new">Airbnb your home</a>

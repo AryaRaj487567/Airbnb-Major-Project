@@ -1,35 +1,52 @@
 <% layout("/layouts/boilerplate.ejs") %>
 <style>
     #filters{
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
+        display:flex;
+        align-items:center;
+        gap:1.5rem;
+        overflow-x:auto;
+        white-space:nowrap;
+        padding:1rem 0;
+        scrollbar-width:none;
     }
+
+    #filters::-webkit-scrollbar{
+        display:none;
+    }
+
     .filter{
-        text-align: center;
-        margin-right: 2rem;
-        margin-top: 2rem;
-        opacity: 0.7;
+        text-align:center;
+        opacity:.7;
+        flex:0 0 auto;
     }
+
     .filter:hover{
-        opacity: 1;
-        cursor: pointer;
+        opacity:1;
+        cursor:pointer;
     }
+
     .filter p{
-        font-size: 0.8rem;
+        font-size:.85rem;
     }
-    .tax-info{
-        display: none;
-    }
+
     .tax-toggle{
-        border: 1px solid black;
-        border-radius: 1rem;
-        height: 3rem;
-        padding: 1rem;
-        margin-left: 3rem;
-        display: flex;
-        align-items: center;
+        border:1px solid #ccc;
+        border-radius:15px;
+        padding:.8rem 1rem;
+        margin-left:auto;
+        flex:0 0 auto;
     }
+
+    @media(max-width:768px){
+
+    #filters{
+        gap:1rem;
+    }
+
+    .tax-toggle{
+        margin-left:1rem;
+    }
+}
 </style>
 <body>
     <div id="filters">
@@ -84,23 +101,25 @@
             </div>
         </div>
     </div>
-    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
+    <div class="row mt-4">
         <% for(let listing of allListings){%>
-           <a href="/listings/<%= listing._id%>" class="listing-link">
-              <div class="card col listing-card">
-              <img src="<%= listing.image.url %>" class="card-img-top" alt="listing_image" style="height: 20rem"/>
-              <div class="card-img-overlay"></div>
-              <div class="card-body">
-                <p class="card-text"> <b><%= listing.title %></b> 
-                    <br/>
-                    &#8377; <%= listing.price.toLocaleString("en-IN") %> / night
-                    <i class="tax-info">&nbsp; +18% GST</i>
-                </p>
-              </div>
-              </div>
-           </a>
-    <%}%> 
-    </div>
+           <div class="col-12 col-md-6 col-lg-4 mb-4">
+                <a href="/listings/<%= listing._id%>" class="listing-link">
+                   <div class="card listing-card">
+                        <img src="<%= listing.image.url %>" class="card-img-top" alt="listing_image" style="height: 20rem"/>
+                        <div class="card-img-overlay"></div>
+                        <div class="card-body">
+                            <p class="card-text"> <b><%= listing.title %></b> 
+                            <br/>
+                                &#8377; <%= listing.price.toLocaleString("en-IN") %> / night
+                                <i class="tax-info">&nbsp; +18% GST</i>
+                            </p>
+                       </div>
+                   </div>
+              </a>
+          <%}%> 
+          </div>
+    </div>  
 </body>
 
 <script>
